@@ -166,7 +166,6 @@ void setup() {
     pinMode(3, OUTPUT);
     wifimanstart();
     delay(1000);
-   // WiFi.mode(WIFI_STA);
     webServer.on("/",  handleRoot);
     webServer.on("/config/",  handleRGBConfig);
     webServer.begin();
