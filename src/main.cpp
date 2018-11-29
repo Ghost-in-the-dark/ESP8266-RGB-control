@@ -6,9 +6,9 @@
 #include <DNSServer.h>
 
 
-#define debug false
+#define debug false // нафиг не нужен но пусть будет 
 // храним % позицию курсора с клиента, потому что высчитать позицию по rgb каналу очень сложно
-int position_x = 50, position_y = 99;
+int position_x = 50, position_y = 90;
 
 ESP8266WebServer webServer(80);
 
@@ -173,7 +173,7 @@ void setup() {
     pinMode(3, OUTPUT);
     wifimanstart();
     delay(1000);
-    //WiFi.mode(WIFI_STA);
+   // WiFi.mode(WIFI_STA);
     webServer.on("/",  handleRoot);
     webServer.on("/config/",  handleRGBConfig);
     webServer.begin();
