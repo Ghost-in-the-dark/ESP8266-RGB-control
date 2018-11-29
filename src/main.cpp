@@ -6,7 +6,7 @@
 #include <DNSServer.h>
 
 
-#define debug false // нафиг не нужен но пусть будет 
+
 // храним % позицию курсора с клиента, потому что высчитать позицию по rgb каналу очень сложно
 int position_x = 50, position_y = 90;
 
@@ -117,16 +117,9 @@ void wifimanstart() { // Волшебная процедура начально�
                       // Если не знает к чему подцепить - создает точку доступа ESP8266 и настроечную таблицу http://192.168.4.1
                       // Подробнее: https://github.com/tzapu/WiFiManager
   WiFiManager wifiManager;
-  wifiManager.setDebugOutput(debug);
   //wifiManager.resetSettings();            // сброс настроек
   wifiManager.setMinimumSignalQuality();
-  if (!wifiManager.autoConnect("ESP8266 RGB")) {
-  if (debug) Serial.println("failed to connect and hit timeout");
-    delay(3000);
-    //reset and try again, or maybe put it to deep sleep
-    ESP.reset();
-    delay(5000); }
-if (debug) Serial.println("connected...");
+  if (!wifiManager.autoConnect("ESP8266 RGB")) {}
 }
 
 void handleRGBConfig() {
